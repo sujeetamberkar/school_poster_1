@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>माझी मराठी शाळा - प्रवेश २०२६</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+<script>
+  /* ============================================
+     🖼️ PASTE YOUR IMAGE PATHS / URLs HERE
+     e.g. "C:/Photos/photo1.jpg" or "https://..."
+     ============================================ */
+  const IMAGES = {
+    IMG1: "./store/1.jpeg",   // e.g. "C:/photos/photo1.jpg" or "https://..."
+    IMG2: "./store/2.jpeg",
+    IMG3: "./store/3.jpeg",
+    IMG4: "./store/4.jpeg",
+  
+  };
+
+  /* ============================================
+     ✂️ CROP EACH PHOTO SEPARATELY
+     Options: "center top" / "center center" / "center bottom"
+     Or fine control: "50% 30%"
+     ============================================ */
+  const CROP = {
+    IMG1: "center center",
+    IMG2: "center top",
+    IMG3: "center center",
+    IMG4: "center top",
+  };
+
+  window.onload = () => {
+    for (const key of ["IMG1","IMG2","IMG3","IMG4"]) {
+      const img = document.getElementById(key);
+      img.src = IMAGES[key];
+      img.style.objectPosition = CROP[key];
+    }
+  };
+</script>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Tiro Devanagari Marathi', serif;
+  }
+
+  .poster {
+    width: 800px;
+    background: #fff8f0;
+    border: 7px solid #b85c00;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(184,92,0,0.35);
+  }
+
+  /* Tricolor */
+  .tricolor { height: 10px; background: linear-gradient(to right, #FF9933 33%, white 33%, white 66%, #138808 66%); }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #7b1f00, #c0390b);
+    padding: 18px 30px 14px;
+    text-align: center;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(to right, #ffd700, #ff9500, #ffd700);
+    margin-top: 14px;
+    border-radius: 2px;
+  }
+  .govt-badge {
+    display: inline-block;
+    background: rgba(255,215,0,0.15);
+    border: 1px solid #ffd700;
+    border-radius: 20px;
+    padding: 3px 16px;
+    color: #ffe680;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+  }
+  .school-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  }
+  .school-name .highlight { color: #ffd700; }
+  .sub-info {
+    font-size: 13px;
+    color: #ffd5b8;
+    margin-top: 5px;
+    line-height: 1.7;
+  }
+
+  /* Pravesh strip */
+  .pravesh-banner {
+    background: linear-gradient(135deg, #0d3b6e, #1a5276);
+    text-align: center;
+    padding: 11px;
+    border-bottom: 3px solid #ffd700;
+  }
+  .pravesh-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .pravesh-title .yr { color: #ffd700; font-size: 30px; }
+
+  /* Tagline */
+  .tagline-top {
+    background: #fff3e0;
+    text-align: center;
+    padding: 14px 20px 10px;
+    border-bottom: 2px dashed #e07b00;
+  }
+  .tagline-main {
+    font-size: 24px;
+    font-weight: 700;
+    color: #7b1f00;
+    line-height: 1.4;
+  }
+  .tagline-main .accent { color: #c0390b; font-style: italic; }
+  .tagline-main .bold-word {
+    color: #0d3b6e;
+    font-size: 27px;
+  }
+
+  /* Photo grid — NO labels */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 185px 185px;
+    gap: 3px;
+    padding: 3px;
+    background: #b85c00;
+  }
+  .photo-cell { overflow: hidden; }
+  .photo-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Features */
+  .features-section {
+    background: linear-gradient(180deg, #fff8f0, #fff3e0);
+    padding: 18px 30px 14px;
+    border-top: 3px solid #b85c00;
+  }
+  .features-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #7b1f00;
+    margin-bottom: 12px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  .features-title::after {
+    content: '';
+    display: block;
+    width: 60px; height: 3px;
+    background: #c0390b;
+    margin: 5px auto 0;
+    border-radius: 2px;
+  }
+  .features-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 20px;
+  }
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    color: #2c1a00;
+    line-height: 1.4;
+  }
+  .feature-item .dot {
+    color: #c0390b;
+    font-size: 18px;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+  .feature-item strong { color: #0d3b6e; }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, #7b1f00, #c0390b);
+    padding: 16px 30px;
+    text-align: center;
+  }
+  .cta-line1 {
+    font-size: 17px;
+    color: #ffd5b8;
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .cta-line2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .cta-line2 .gold { color: #ffd700; }
+  .cta-line3 {
+    font-size: 15px;
+    color: #ffd5b8;
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .cta-tagline-bottom {
+    display: inline-block;
+    margin-top: 10px;
+    background: rgba(255,215,0,0.15);
+    border: 1px solid #ffd700;
+    border-radius: 20px;
+    padding: 5px 22px;
+    color: #ffd700;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="tricolor"></div>
+
+  <div class="header">
+    <div class="govt-badge">जिल्हा परिषद • महाराष्ट्र शासन</div>
+    <div class="school-name">
+      जिल्हा परिषद <span class="highlight">शाळा कुडसावरे</span>
+    </div>
+    <div class="sub-info">
+      केंद्र - वांगणी &nbsp;|&nbsp; तालुका - अंबरनाथ &nbsp;|&nbsp; जिल्हा - ठाणे
+    </div>
+  </div>
+
+  <div class="pravesh-banner">
+    <div class="pravesh-title">शाळा प्रवेश <span class="yr">२०२६</span></div>
+  </div>
+
+  <div class="tagline-top">
+    <div class="tagline-main">
+      काळजाला हात घालणारी<br>
+      <span class="accent">माझी</span> <span class="bold-word">मराठी शाळा</span> 🏫
+    </div>
+  </div>
+
+  <!-- 4 Photos, no labels -->
+  <div class="photo-grid">
+    <div class="photo-cell"><img id="IMG1" src="" alt="photo1"></div>
+    <div class="photo-cell"><img id="IMG2" src="" alt="photo2"></div>
+    <div class="photo-cell"><img id="IMG3" src="" alt="photo3"></div>
+    <div class="photo-cell"><img id="IMG4" src="" alt="photo4"></div>
+  </div>
+
+  <div class="features-section">
+    <div class="features-title">शाळेची वैशिष्ट्ये</div>
+    <div class="features-list">
+      <div class="feature-item"><span class="dot">◆</span><span>प्रत्येक विद्यार्थ्यांच्या प्रगतीकडे <strong>वैयक्तिक मार्गदर्शन</strong></span></div>
+      <div class="feature-item"><span class="dot">◆</span><span><strong>English</strong> विषयांवर विशेष लक्ष — हेच आमचे ध्येय</span></div>
+      <div class="feature-item"><span class="dot">◆</span><span><strong>गुणवत्तापूर्ण</strong> हसत खेळत शिक्षण</span></div>
+      <div class="feature-item"><span class="dot">◆</span><span>आनंददायी <strong>शनिवार उपक्रम</strong></span></div>
+      <div class="feature-item"><span class="dot">◆</span><span>अंगभूत <strong>कलागुणांच्या विकासाला</strong> प्रोत्साहन</span></div>
+      <div class="feature-item"><span class="dot">◆</span><span><strong>डिजिटल लर्निंग</strong></span></div>
+      <div class="feature-item"><span class="dot">◆</span><span>शैक्षणिक - <strong>सह शैक्षणिक उपक्रम</strong></span></div>
+      <div class="feature-item"><span class="dot">◆</span><span>स्पर्धा परीक्षेसाठी <strong>वैयक्तिक मार्गदर्शन</strong></span></div>
+      <div class="feature-item"><span class="dot">◆</span><span>सरकारी <strong>विविध लाभाच्या योजना</strong></span></div>
+      <div class="feature-item"><span class="dot">◆</span><span><strong>ज्ञानरचनावादातून</strong> अध्ययन</span></div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <div class="cta-line1">आजच आपल्या पाल्याचे गावातील मराठी शाळेत नोंदवू या...</div>
+    <div class="cta-line2">गावच्या मातीशी नातं <span class="gold">घट्ट करूया</span> 🌱</div>
+    <div class="cta-tagline-bottom">काळजाला हात घालणारी माझी मराठी शाळा ❤️</div>
+  </div>
+
+  <div class="tricolor"></div>
+</div>
+</body>
+</html>
